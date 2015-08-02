@@ -1,0 +1,53 @@
+snippet "([^\s].*)(!|.not)" "Postfix not" r
+!`!p snip.rv = match.group(1)`$0
+endsnippet
+
+snippet "([^\s].*)\.(echo|eo)" "Postfix echo" r
+echo `!p snip.rv = match.group(1)`;$0
+endsnippet
+
+snippet "([^\s].*)\.(else|el)" "Postfix else" r
+if (!`!p snip.rv = match.group(1)`) {
+	$0
+}
+endsnippet
+
+snippet "([^\s].*)\.fe" "Postfix foreach" r
+foreach (`!p snip.rv = match.group(1)` as $${1:element}) {
+	$0
+}
+endsnippet
+
+snippet "([^\s].*)\.if" "Postfix if" r
+if (`!p snip.rv = match.group(1)`) {
+	$0
+}
+endsnippet
+
+snippet "([^\s].*)\.(notnull|nn)" "Postfix if not null" r
+if (`!p snip.rv = match.group(1)` !== null) {
+	$0
+}
+endsnippet
+
+snippet "([^\s].*)\.(null|n)" "Postfix if null" r
+if (`!p snip.rv = match.group(1)` === null) {
+	$0
+}
+endsnippet
+
+snippet "([^\s].*)\.par" "Postfix parenthesis" r
+(`!p snip.rv = match.group(1)`)$0
+endsnippet
+
+snippet "([^\s].*)\.(return|re)" "Postfix return" r
+return `!p snip.rv = match.group(1)`;$0
+endsnippet
+
+snippet "([^\s].*)\.(throw|tw)" "Postfix throw" r
+throw new Exception(`!p snip.rv = match.group(1)`);$0
+endsnippet
+
+snippet "([^\s].*)\.(var_dump|vd)" "Postfix var_dump" r
+var_dump(`!p snip.rv = match.group(1)`); exit;$0
+endsnippet

@@ -1,0 +1,64 @@
+snippet "([^\s].*)\.(else|el)" "Postfix else" r
+if (!(`!p snip.rv = match.group(1)`)) {
+	$0
+}
+endsnippet
+
+snippet "([^\s].*)\.if" "Postfix if" r
+if (`!p snip.rv = match.group(1)`) {
+	$0
+}
+endsnippet
+
+snippet "([^\s].*)\.itin" "Postfix for loop" r
+for (var ${1:element} in `!p snip.rv = match.group(1)`) {
+	$0
+}
+endsnippet
+
+snippet "([^\s].*)\.log" "Postfix console.log" r
+console.log(`!p snip.rv = match.group(1)`);$0
+endsnippet
+
+snippet "([^\s].*)(\.not|!)" "Postfix not" r
+!`!p snip.rv = match.group(1)`$0
+endsnippet
+
+snippet "([^\s].*)\.(notnull|nn)" "Postfix if not null" r
+if (`!p snip.rv = match.group(1)` !== null) {
+	$0
+}
+endsnippet
+
+snippet "([^\s].*)\.(null|n)" "Postfix if null" r
+if (`!p snip.rv = match.group(1)` === null) {
+	$0
+}
+endsnippet
+
+snippet "([^\s].*)\.par" "Postfix parenthesis" r
+(`!p snip.rv = match.group(1)`)$0
+endsnippet
+
+snippet "([^\s].*)\.(return|re)" "Postfix return" r
+return `!p snip.rv = match.group(1)`;$0
+endsnippet
+
+snippet "([^\s].*)\.(throw|tw)" "Postfix throw" r
+throw `!p snip.rv = match.group(1)`;$0
+endsnippet
+
+snippet "([^\s].*)\.(typeof|to)" "Postfix typeof" r
+typeof `!p snip.rv = match.group(1)`$0
+endsnippet
+
+snippet "([^\s].*)\.(undef|ud)" "Postfix undef" r
+if (typeof `!p snip.rv = match.group(1)` !== "undefined") {
+	$0
+}
+endsnippet
+
+snippet "([^\s].*)\.var" "Postfix var" r
+var `!p snip.rv = match.group(1)`;$0
+endsnippet
+
